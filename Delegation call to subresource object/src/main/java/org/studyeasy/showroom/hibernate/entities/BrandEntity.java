@@ -1,27 +1,24 @@
 package org.studyeasy.showroom.hibernate.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity(name="brands")
 @Table(name="brands")
 public class BrandEntity {
+	
 	@Id
 	@Column(name="brandId")
-	int brandId;
+	private int brandId;
 	
 	@Column(name="brandName")
-	String brandName;
+	private String brandName;
 	
-	public BrandEntity() {
-		
-	}
+	public BrandEntity() {}
 
 	public BrandEntity(int brandId, String brandName) {
-		super();
 		this.brandId = brandId;
 		this.brandName = brandName;
 	}
@@ -42,4 +39,14 @@ public class BrandEntity {
 		this.brandName = brandName;
 	}
 
+	@Override
+	public String toString() {
+		return "BrandEntity [brandId=" + brandId + ", brandName=" + brandName + "]";
+	}
+
+	public void addBrand(BrandEntity brand) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
