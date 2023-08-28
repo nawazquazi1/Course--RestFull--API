@@ -46,8 +46,7 @@ public class BrandsDAO {
 		session.beginTransaction();
 		BrandEntity brand = session.get(BrandEntity.class, brandId);
 		session.delete(brand);
-		session.getTransaction().commit();
-		
+		session.getTransaction().commit();	
 	}
 
 }

@@ -18,7 +18,7 @@ public class ProductsDAO {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		List<ProductEntity> productList;
-		String sql  = "from products where brandId = '"+brandId+"'";
+		String sql  = "from products where brandId ="+brandId;
 		productList = session.createQuery(sql).getResultList();
 		return productList;
 	}

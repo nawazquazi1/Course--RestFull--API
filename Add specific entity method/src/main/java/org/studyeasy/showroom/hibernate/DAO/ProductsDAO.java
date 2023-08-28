@@ -1,5 +1,6 @@
 package org.studyeasy.showroom.hibernate.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -16,13 +17,21 @@ public class ProductsDAO {
             .addAnnotatedClass(BrandEntity.class)
             .buildSessionFactory();
 
+	@SuppressWarnings("unchecked")
 	public List<ProductEntity> getProductsByBrand(int brandId) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		List<ProductEntity> productList;
-		String HQL  = "from products where brandId = '"+brandId+"'";
-		productList = session.createQuery(HQL).getResultList();
-		return productList;
+		List<ProductEntity> list = new ArrayList<ProductEntity>();
+		
+		String sql  = "from products";
+		productList = session.createQuery(sql).getResultList();
+		for (ProductEntity e : productList) {
+			if (e.getBrandEntity().getBrandId() == brandId) {
+				list.add(e);
+			}
+		}
+		return list;
 	}
 
 	public List<ProductEntity> getProductsByBrandAndCategory(int brandId, String category) {

@@ -1,5 +1,4 @@
 Manifest-Version: 1.0
-Built-By: StudyEasy
-Build-Jdk: 1.8.0_191
+Build-Jdk-Spec: 18
 Created-By: Maven Integration for Eclipse
 
